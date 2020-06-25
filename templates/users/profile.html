@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center">
+        <h1 class="mb-2 bread">{{ user.first_name}}'s Profile</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Profile<i class="ion-ios-arrow-forward"></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="content-section col-lg-8 offset-lg-1 mt-4">
+    <div class="media profile-pic">
+      <img class="rounded-circle account-img img-thumbnail" src="{{ user.profile.image.url }}" style="width:100px;">
+      <div class="media-body">
+        <h2 class="account-heading">{{user.first_name}} {{user.last_name}}</h2>
+        <p class="text-secondary">{{user.email}}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Profile Info</legend>
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Update</button>
+
+        </div>
+        
+    </form>
+  </div>
+{% endblock content %}

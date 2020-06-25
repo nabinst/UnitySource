@@ -1,0 +1,7 @@
+.dropdown-menu > li > a {
+    color: white; /* This has an effect */
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: red; /* This doesn't... why? */
+}
