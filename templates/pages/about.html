@@ -103,16 +103,18 @@
     		<div class="row d-md-flex align-items-center justify-content-center">
     			<div class="col-lg-10">
     				<div class="row d-md-flex align-items-center">
+				{% for fact in org_fact %}
 		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
 		              <div class="text">
-		                <strong class="number" data-number="18">0</strong>
-		                <span>Certified Teachers</span>
+		                <strong class="number" data-number="{{fact.counts}}">0</strong>
+		                <span>{{fact.facts_category}}</span>
 		              </div>
 		            </div>
 		          </div>
-		          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+				{% endfor %}
+		          <!-- <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18">
 		            	<div class="icon"><span class="flaticon-doctor"></span></div>
 		              <div class="text">
@@ -138,7 +140,7 @@
 		                <span>Awards Won</span>
 		              </div>
 		            </div>
-		          </div>
+		          </div> -->
 	          </div>
           </div>
         </div>
@@ -157,21 +159,23 @@
         <div class="row ftco-animate justify-content-center">
           <div class="col-md-12">
             <div class="carousel-testimony owl-carousel">
+				{% for parent in parent_comment %}
               <div class="item">
                 <div class="testimony-wrap d-flex">
-                  <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg' %})">
+                  <div class="user-img mr-4" style="background-image: url({{ parent.parent_image.url }})">
                   </div>
                   <div class="text ml-2 bg-light">
                   	<span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Racky Henderson</p>
-                    <span class="position">Father</span>
+                    <p>{{parent.comment}}</p>
+                    <p class="name">{{parent.name}}</p>
+                    <span class="position">{{parent.position}}</span>
                   </div>
                 </div>
               </div>
-              <div class="item">
+			  {% endfor %}
+              <!-- <div class="item">
                 <div class="testimony-wrap d-flex">
                   <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-2.jpg' %})">
                   </div>
@@ -213,7 +217,7 @@
                   </div>
                 </div>
               </div>
-              <div class="item">
+              <div class="item"> 
                 <div class="testimony-wrap d-flex">
                   <div class="user-img mr-4" style="background-image: url({% static 'images/teacher-1.jpg' %})">
                   </div>
@@ -225,15 +229,16 @@
                     <p class="name">Ken Bosh</p>
                     <span class="position">Mother</span>
                   </div>
-                </div>
-              </div>
+                </div> 
+              </div>-->
+			 
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url({% static 'images/bg_5.jpg' %});" data-stellar-background-ratio="0.5">
+    <!-- <section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url({% static 'images/bg_5.jpg' %});" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-end">
     			<div class="col-md-6 py-5 px-md-5 bg-primary">
@@ -283,20 +288,24 @@
     			</div>
         </div>
     	</div>
-    </section>
+    </section> -->
 
 
 		<section class="ftco-gallery">
     	<div class="container-wrap">
     		<div class="row no-gutters">
+				{% for img in galary_pic %}
+
 					<div class="col-md-3 ftco-animate">
-						<a href="images/image_1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url({% static 'images/course-1.jpg' %});">
+						<a href="{{ img.gallery_image.url }}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ img.gallery_image.url }});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
 					</div>
-					<div class="col-md-3 ftco-animate">
+
+					{% endfor %}
+					<!-- <div class="col-md-3 ftco-animate">
 						<a href="images/image_2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url({% static 'images/image_2.jpg' %});">
 							<div class="icon mb-4 d-flex align-items-center justify-content-center">
     						<span class="icon-instagram"></span>
@@ -316,7 +325,7 @@
     						<span class="icon-instagram"></span>
     					</div>
 						</a>
-					</div>
+					</div> -->
         </div>
     	</div>
     </section>

@@ -29,52 +29,57 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item"><a href="{% url 'unity-about' %}" class="nav-link">About</a></li>
+	        	<li class="nav-item active"><a href="/" class="nav-link  pl-0">Home</a></li>
+	        	<li class="nav-item "><a href="{% url 'unity-about' %}" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="{% url 'unity-teacher' %}" class="nav-link">Teacher</a></li>
 	        	<li class="nav-item"><a href="{% url 'unity-courses' %}" class="nav-link">Courses</a></li>
 	        	<li class="nav-item"><a href="{% url 'unity-pricing' %}"class="nav-link">Pricing</a></li>
-				<li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link">Blog</a></li>
+				
 				{% if request.user.is_staff %}
-				<li class="nav-item"><a href="{% url 'post-create' %}" class="nav-link">Create</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="{% url 'blog-home' %}">Blogs</a>
+					<a class="dropdown-item" href="{% url 'post-create' %}">Create Blog</a>
+					
+					</div>
+				</li>
+				{% else %}
+				<li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link">Blog</a></li>
 				{% endif %}
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+			  	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More Links</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					  <a class="dropdown-item" href="{% url 'list_pdf' %}">PFD</a>
-					  <a class="dropdown-item" href="#two">Two</a>
-					  <div role="separator" class="dropdown-divider"></div>
-					  <a class="dropdown-item" href="#three">three</a>
+					<a class="dropdown-item" href="{% url 'list_pdf' %}">PFD Downloads</a>
+					<a class="dropdown-item" href="{% url 'gallery-list' %}">Gallery</a>
+					<a class="dropdown-item" href="{% url 'calendar' %}">Calendar</a>
+					<div role="separator" class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#three">Coming Soon</a>
 					</div>
-				  </li>
-				
-				
-		
-				
-				
-	
-				
-			  <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
-			  
-			 {% if user.is_authenticated %}
-			 	<li class="nav-item"><a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></li>
-			 	<li class="nav-item"><a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></li>
-			 {% else %}
+				</li>
+						
+			 	{% if user.is_authenticated %}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						<img src="{{ user.profile.image.url }}" class="rounded-circle " width="40" height="40"> <b class="caret"></b></a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+					<a class="dropdown-item" href="{% url 'profile' %}">Edit Profile</a>
+					<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+
+					<!-- <a class="dropdown-item" href="{% url 'calendar' %}">Calendar</a> -->
+					<div role="separator" class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#three">Coming Soon</a>
+					</div>
+				</li>  
+				{% else %}
 				<li class="nav-item"><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></li>
 				<li class="nav-item"><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></li>
-
-			 {% endif %}
-			 				
+				{% endif %}
+			
 			</ul>
 		
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-				<li><a tabindex="-1" href="#">Action</a></li>
-				<li><a tabindex="-1" href="#">Another action</a></li>
-				<li><a tabindex="-1" href="#">Something else here</a></li>
-				<li class="divider"></li>
-				<li><a tabindex="-1" href="#">Separated link</a></li>
-			  </ul>
 			
 		  </div>
 		

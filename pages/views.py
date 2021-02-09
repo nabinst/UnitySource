@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from users.models import Profile
 from blogs.models import Post 
 from django.views.generic import ListView
-
-
+from gallery.models import GalleryList
+from .models import ParentsProfile, OrgFacts
 
 
 class IndexView(ListView):
@@ -20,6 +20,9 @@ class IndexView(ListView):
         #teacher_latest = Profile.objects.filter(teacher=True).order_by('?')[0:4]
         #featured = Post.objects.filter(featured=True)
         #latest = Post.objects.order_by('-timestamp')[0:3]
+        context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
+        context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
+        context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
 
@@ -30,7 +33,10 @@ class AboutListView(ListView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        #context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
+        context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
+        context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
 class TeacherListView(ListView):
@@ -62,5 +68,7 @@ class CoursesListView(ListView):
         return context_data
 
 
-
+def CalendarView(request):
+    
+    return render(request, 'pages/calendar.html',{})
 

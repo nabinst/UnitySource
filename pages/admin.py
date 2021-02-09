@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import ParentsProfile, OrgFacts
 
-# Register your models here.
+admin.site.register(ParentsProfile)
+admin.site.register(OrgFacts)

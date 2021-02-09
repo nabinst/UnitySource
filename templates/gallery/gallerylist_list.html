@@ -1,0 +1,83 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block content %}
+
+
+	    
+    <section class="hero-wrap hero-wrap-2 " style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Gallery</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Gallery<i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+		{% if request.user.is_staff %}
+    <div class="col-md-12 text-center ftco-animate">
+      <!-- <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1> -->
+      <p class="mb-2 mt-2" align="center" ><a href="{% url 'gallery-add' %}" class="btn btn-primary px-4 py-3 mt-3">Add More Pictures</a></p>
+    </div>
+{% endif %}
+	<section class="ftco-gallery mt-5 mb-5">
+    	<div class="container-wrap">
+    		<div class="row no-gutters">
+				{% for img in object_list %}
+        <div class="col-md-3 ftco-animate">
+						<a href="{{ img.gallery_image.url }}" class="gallery image-popup img d-flex align-items-center " style="background-image: url({{ img.gallery_image.url }});">
+							<div class="icon mb-4 d-flex align-items-center justify-content-center">
+    						<span class="icon-instagram"></span>
+
+               
+
+    					</div>
+             </a>
+             {% if request.user.is_staff %}
+             <p class="mb-2 mt-2" align="center" ><a href="{% url 'gallery-delete' img.id %}" class="btn btn-outline-danger">Delete<span class="ion-ios-arrow-round"></span></a></p>
+             
+             <p class="ml-auto mb-0">
+               {% endif %}
+  					</div>
+
+					{% endfor %}			
+        </div>
+<!--Paginate -->
+        <div class="row no-gutters my-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+               
+                <li>
+                  
+                  <a href="?page= {{ page_obj.previous_page_number }}"><i class="ion-ios-arrow-back"></i></a>
+                </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                
+                  {% if page_obj.number == num %}
+                  <li class="active"><a href="?page= {{ num }}">{{ num }}</a></li>
+                  {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+                  <li><a href="?page= {{ num }}">{{ num }}</a></li>
+
+                  {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li><a href="?page= {{ page_obj.next_page_number }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                {% endif %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    	</div>
+    </section>
+
+    {% endblock content %}

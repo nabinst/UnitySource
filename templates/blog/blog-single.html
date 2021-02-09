@@ -34,8 +34,15 @@
               </div>
 
               {% if object.author == user %}
-              <a href="{% url 'post-update' object.id %}">Update</a>
-              <a href="{% url 'post-delete' object.id %}">Delete</a>
+
+              <p class="mb-0">
+                <a href="{% url 'post-update' object.id %}" class="btn btn-primary">Update<span class="ion-ios-arrow-round"></span></a>
+                <a href="{% url 'post-delete' object.id %}" class="btn btn-danger">Delete<span class="ion-ios-arrow-round"></span></a>
+              </p>
+              <p class="ml-auto mb-0">
+
+              <!-- <a href="{% url 'post-update' object.id %}">Update</a>
+              <a href="{% url 'post-delete' object.id %}">Delete</a> -->
              
               {% endif %}
             </div>

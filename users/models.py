@@ -13,6 +13,7 @@ class Profile(models.Model):
     location = models.CharField(max_length=30, blank=True)
     birth_date = models.DateField(null=True, blank=True, help_text='YYYY-MM-DD')
     user_staff = models.BooleanField(default=False)
+    user_admin = models.BooleanField(default=False)
     teacher = models.BooleanField(default=False)
     facebook = models.CharField( max_length=300, blank=True,default='#')
     google = models.CharField( max_length=300, blank=True,default='#')
@@ -37,4 +38,4 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
     
-        
+

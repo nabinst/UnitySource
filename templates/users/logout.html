@@ -3,14 +3,40 @@
 {% load static %}
 
 {% block content %}
-<div class="col-lg-8 offset-lg-1 jumbotron text-center">
-    <H2>You have been logged out</H2>
-    <div class="border-top pt-3">
+
+
+	    
+<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+          <h1 class="mb-2 bread">logout</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Logout <i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+      
+<section class="ftco-section ftco-no-pt ftc-no-pb col-lg-6 mt-3">
+    <div class="container">
+    <div class="content-section">
+        <div class="col-lg-12 offset-lg-6 jumbotron text-center">
+            <H2>You have been logged out</H2>
+            <div class="border-top pt-3">
+                
+                <small class="text-muted">
+                    
+                    <a href="{% url 'login' %}">Log In Again</a>
+                </small>
+            </div>
+        </div>
         
-        <small class="text-muted">
-            
-            <a href="{% url 'login' %}">Log In Again</a>
-        </small>
+       
     </div>
 </div>
+</section>
+
+
+
 {% endblock content %}
