@@ -3,18 +3,37 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container">
-    <h2>Upload PDF</h2>
-    <div class="row">
+
+
+
+<section class="hero-wrap hero-wrap-2 mb-1" style="background-image: url({% static 'images/bg_2.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+          <h1 class="mb-2 bread">Upload PDF Forms</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Upload PDF forms<i class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="bg-light">
+        
+<div class="container mt-3">
+    <h2 >Upload PDF</h2>
+    <div class="row row-eq-height">
 
         <div class="col-8">
-
+        {% if request.user.is_authenticated%}
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary mb-4">Upload Form</button>
         </form>
+        {% endif %}
         </div>
     </div>
 </div>
+</section>
 {% endblock content %}

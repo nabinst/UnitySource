@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from users.models import Profile
 from blogs.models import Post 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from gallery.models import GalleryList
-from .models import ParentsProfile, OrgFacts
+from .models import ParentsProfile, OrgFacts, Future, Youth
 
 
 class IndexView(ListView):
@@ -22,6 +22,8 @@ class IndexView(ListView):
         #latest = Post.objects.order_by('-timestamp')[0:3]
         context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
         context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
+        context_data['future_program'] = Future.objects.all().order_by('-date_posted')[0:6]
+        context_data['youth_program'] = Youth.objects.all().order_by('-date_posted')[0:4]
         context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
@@ -36,6 +38,8 @@ class AboutListView(ListView):
         #context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
         context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
         context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
+        context_data['teacher_count'] = Profile.objects.all().count()
+        context_data['teacher_latest'] = Profile.objects.filter(teacher=True).order_by('?')[0:4]
         context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
@@ -69,6 +73,20 @@ class CoursesListView(ListView):
 
 
 def CalendarView(request):
-    
     return render(request, 'pages/calendar.html',{})
 
+
+class FutureListView(ListView):
+    model = Future
+    ordering = '-date_posted'
+
+class FutureDetailView(DetailView):
+    model = Future
+
+
+class YouthListView(ListView):
+    model = Youth
+    ordering = '-date_posted'
+
+class YouthDetailView(DetailView):
+    model = Youth

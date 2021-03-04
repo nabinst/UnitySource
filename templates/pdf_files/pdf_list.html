@@ -4,102 +4,55 @@
 
 {% block content %}
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+<section class="hero-wrap hero-wrap-2 mb-1" style="background-image: url({% static 'images/bg_2.jpg' %});">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text align-items-center justify-content-center">
       <div class="col-md-9 ftco-animate text-center">
-        <h1 class="mb-2 bread">PDF Forms</h1>
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>PDF form list<i class="ion-ios-arrow-forward"></i></span></p>
+        <h1 class="mb-2 bread">Unity Updates </h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>PDF Forms <i class="ion-ios-arrow-forward"></i></span></p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="ftco-section bg-light">
-<div class="container list-group">
-  <div class="offset-2 d-flex w-50 justify-content-between mt-4 mb-4">
-    <!-- <h2>PDF List</h2> -->
-    {% if user.is_superuser %}
-    <a href="{% url 'upload_pdf' %}" class="btn btn-success" type="button">Upload PDF Form</a>
-    
-    {% endif %}
-  </div>
+
+<section class="ftco-section">
+
+ 
+  <div class="container">
+    {% if request.user.is_staff %}
+    <div class="col-md-12 text-center ftco-animate">
+      <!-- <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1> -->
+      <p class="mb-2" align="center" ><a href="{% url 'upload_pdf' %}" class="btn btn-danger px-4 py-3 mt-3">Upload New PFD Forms  <span class="ion-ios-arrow-round-up"></span></a></p>
+    </div>
+  {% endif %}
+
     <div class="row">
-        <div class="col-8">
-    {% for pdf_list in pdf_lists %}
-
-    <div  class="list-group-item list-group-item-action mb-4 offset-2">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ pdf_list.title}}</h5>
-        <a href="{{ pdf_list.pdf.url}}" class="btn btn-primary">Download</a>
-        <!-- <h4><a href="{{ pdf_list.pdf.url}}">Download</a></h4> -->
+      {% for obj in pdf_lists %}
+      <div class="col-md-4  d-lg-flex ftco-animate mb-1">
+        <!-- <div class="img" style="background-image: url({{ obj.image.url }});"></div> -->
+        <div class="text bg-light p-4">
+          <h3><a>{{obj.title}}</a></h3>
+          
+          <p>{{obj.overview}}</p>
+          <div class="d-flex align-items-center mt-4">
+             
+            <p class="mb-0"><a href="{{pdf_list.pdf.url}}" target="_blank" class="btn btn-primary">Download <span class="ion-ios-arrow-round-down"></span></a></p>
+            <p class="ml-auto mb-0">
+             
+              <!-- <a href="#" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>
+              <a href="#" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a> -->
+              
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="mt-4">
-      <p class="mb-1">{{pdf_list.overview}}</p>
+     
+      {% endfor %}
     </div>
-    <!-- <div><a href="{{ pdf_list.pdf.url}}">Download</a></div> -->
-      <!-- <p><a href="{{ pdf_list.pdf.url}}" class="btn btn-primary">Download</a></p> -->
-    </div>
-    {% endfor %}
-
-    <!-- <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
-      </div>
-      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-      <small class="text-muted">Donec id elit non mi porta.</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
-      </div>
-      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-      <small class="text-muted">Donec id elit non mi porta.</small>
-    </a> -->
   </div>
-</div>
 </section>
+
   {% endblock content %}
-
-
-
-
-<!-- <div class="container">
-
-
-<table class="table mb-4">
-    <thead>
-        <tr>
-            <th scope="col">Title</th>
-            <th scope="col">Overview</th>
-            <th scope="col">Download Form</th>
-            <th scope="col">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-      
-        <tr>
-            
-            <th scope="row">{{ pdf_list.title}}</th>
-            <td>{{ pdf_list.overview}}</td>
-            <td>
-                <a href="{{ pdf_list.pdf.url }}" class="btn btn-primary" target="_blank">Download</a>
-            </td>
-            <td>
-                {% if user.is_superuser %}
-                <form method="post" action="{% url 'delete_pdf' pk=pdf_list.pk %}">
-                {% csrf_token %}
-                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-                {% endif %}
-            </td>
-        </tr>
-        
-    </tbody>
-
-</table>
-</div> -->
 

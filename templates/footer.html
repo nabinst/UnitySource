@@ -13,16 +13,16 @@
                   <h2 class="ftco-heading-2">Have a Questions?</h2>
                   <div class="block-23 mb-3">
                     <ul>
-                      <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                      <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                      <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                      <li><span class="icon icon-map-marker"></span><span class="text">685 Benton Pike NE, Cleveland, TN 37311</span></li>
+                      <li><a href="#"><span class="icon icon-phone"></span><span class="text">+1 423 478 1661</span></a></li>
+                      <li><a href="#"><span class="icon icon-envelope"></span><span class="text">clevelandunitycenter@gmail.com</span></a></li>
                     </ul>
                   </div>
               </div>
             </div>
             <div class="col-md-6 col-lg-3">
               <div class="ftco-footer-widget mb-5">
-                <h2 class="ftco-heading-2">Recent Blog</h2>
+                <h2 class="ftco-heading-2">Recent Updates</h2>
 
                 {% for obj in blog_latest_footer %}
                 <div class="block-21 mb-4 d-flex">
@@ -34,7 +34,7 @@
                       <div><a href="{% url 'user-posts' obj.author.username %}">
                         <span class="icon-person">
                         </span> {{ obj.author.first_name }} {{obj.author.last_name }}</a></div>
-                      <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                      <div><a href="#"><span class="icon-chat"></span> {{obj.number_of_comments}}</a></div>
                     </div>
                   </div>
                 </div>
@@ -59,9 +59,18 @@
                 <ul class="list-unstyled">
                   <li><a href="/"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
                   <li><a href="{% url 'unity-about' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
-                  <li><a href="{% url 'unity-courses' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Courses</a></li>
-                  <li><a href="{% url 'unity-teacher' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Teachers</a></li>
                   <li><a href="{% url 'contact' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                  <li><a href="https://app.easytithe.com/App/Giving/bsumc" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Give Financial Support</a></li>
+                  <li><a href=" https://clevelandbradleyfoundation.org/giving/current-funds-we-manage/unity-center-endowment-fund/" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Unity Center Endowment Fund</a></li>
+                 
+                  <li><a href="https://smile.amazon.com/?_encoding=UTF8&_encoding=UTF8&ref_=smi_chpf_redirect" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Suppor through smile.amazon.com</a></li>
+                 
+                  <li><a href="https://www.johnstonwoods.org/" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Johnston Woods</a></li>
+                  
+                  <li><a href="http://www.bsumc.org/" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Broad Street United Methodist Church</a></li>
+                 
+                
+                 
                 </ul>
               </div>
             </div>
@@ -82,9 +91,10 @@
               <div class="ftco-footer-widget mb-5">
                <h2 class="ftco-heading-2">Connect With Us</h2>
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                  <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                  <li class="ftco-animate"><a href="https://twitter.com/unitycenter1999" target="_blank"><span class="icon-twitter"></span></a></li>
+                  <li class="ftco-animate"><a href="http://facebook.com/mary.unity.1" target="_blank"><span class="icon-facebook"></span></a></li>
                   <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                  <li class="ftco-animate"><a href="https://youtube.com/channel/UCWVIjecJ4qOwuXEv2gDCgpQ" target="_blank"><span class="icon-youtube"></span></a></li>
                 </ul>
               </div>
             </div>

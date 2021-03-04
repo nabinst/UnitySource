@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Search Results</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Search Results <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+		
+<section class="ftco-section bg-light">
+    
+      
+	<div class="container">
+       <h2>You search results:</h2>
+		<div >
+          {% for post in queryset %}
+                          
+
+            <div class="blog-entry">
+              <div class="text bg-white ">
+                 <h4 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4> 
+                <p>{{ post.overview }}</p>
+                
+                                        
+              </div>
+            </div>
+      
+       
+          {% endfor %}
+        </div>
+        
+      
+        <div class="row no-gutters my-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+               
+                <li>
+                  
+                  <a href="?page= {{ page_obj.previous_page_number }}"><i class="ion-ios-arrow-back"></i></a>
+                </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                
+                  {% if page_obj.number == num %}
+                  <li class="active"><a href="?page= {{ num }}">{{ num }}</a></li>
+                  {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+                  <li><a href="?page= {{ num }}">{{ num }}</a></li>
+
+                  {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li><a href="?page= {{ page_obj.next_page_number }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                {% endif %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</section>
+
+
+{% endblock content %}
+

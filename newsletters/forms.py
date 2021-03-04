@@ -1,5 +1,5 @@
 from django import forms
-from .models import NewsletterUser
+from .models import NewsletterUser, NewsLetter
 from crispy_forms.helper import FormHelper
 
 
@@ -17,3 +17,12 @@ class NewsletterUserSignUpForm(forms.ModelForm):
         def clean_email(self):
             email = self.cleaned_data.get('email')
             return email
+
+
+class NewsLetterCreationForm(forms.ModelForm):
+
+    class Meta:
+        model = NewsLetter
+        fields =['subject','body','email','status','attachment']
+
+

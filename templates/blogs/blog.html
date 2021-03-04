@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Unity Updates</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Posts <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		
+
+	<section class="ftco-section bg-light">
+
+    
+        <div class="row">
+          <div class="col-lg-4 sidebar ftco-animate">
+          <div class="sidebar-box">
+            <form action="{% url 'search' %}" class="search-form">
+              <div class="form-group">
+                <span class="icon icon-search"></span>
+                <input type="text"  name="q" class="form-control" placeholder="Type a keyword and hit enter">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+ 
+
+			<div class="container">
+       
+				<div class="row row-eq-height">
+          {% for post in posts %}
+          <div class="col-md-6 col-lg-4 ftco-animate">
+
+            
+
+           
+
+            <div class="blog-entry">
+              <a href="{{ post.get_absolute_url }}" class="block-20 d-flex align-items-end" style="background-image: url({{ post.thumbnail.url }});">
+								<div class="meta-date text-center p-2">
+                  <span class="day">{{post.date_posted|date:"d"}} </span>
+                  <span class="mos">{{post.date_posted|date:"M" }}</span>
+                  <span class="yr">{{post.date_posted|date:"Y"}} </span>
+                </div>
+              </a>
+              <div class="text bg-white p-4">
+                <h3 class="heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.overview }}</p>
+                <div class="d-flex align-items-center mt-4">
+                 
+	                <p class="mb-0"><a href="{{ post.get_absolute_url }}" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="ml-auto mb-0">
+                   
+	                	<a href="{% url 'user-posts' post.author.username %}" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>
+	                	<a href="{{ post.get_absolute_url }}" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a>
+                    
+                  </p>
+                </div>
+                              
+              </div>
+            </div>
+          </div>
+          
+         
+          {% endfor %}
+        </div>
+        
+      
+        <div class="row no-gutters my-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+               
+                <li>
+                  
+                  <a href="?page= {{ page_obj.previous_page_number }}"><i class="ion-ios-arrow-back"></i></a>
+                </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                
+                  {% if page_obj.number == num %}
+                  <li class="active"><a href="?page= {{ num }}">{{ num }}</a></li>
+                  {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+                  <li><a href="?page= {{ num }}">{{ num }}</a></li>
+
+                  {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li><a href="?page= {{ page_obj.next_page_number }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                {% endif %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+		</section>
+
+
+{% endblock content %}
+

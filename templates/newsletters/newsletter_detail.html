@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    
+<section class="hero-wrap hero-wrap-2 " style="background-image: url({% static 'images/bg_2.jpg' %});">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center">
+        <h1 class="mb-2 bread">Newsletter Detail</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Newsletter Detail<i class="ion-ios-arrow-forward"></i></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+		
+		<section class="ftco-section bg-light">
+    
+      
+			<div class="container">
+       
+				<div class="row row-eq-height">
+          <div class="col-md-6 col-lg-4 ftco-animate">
+
+                  
+
+            <div class="blog-entry">
+              {% if request.user.is_authenticated and request.user.is_staff %}
+              <!-- <a href="#" class="block-20 d-flex align-items-end" >
+								<div class="meta-date text-center p-2">
+                  <span class="day">{{object.created|date:"d"}} </span>
+                  <span class="mos">{{object.created|date:"M" }}</span>
+                  <span class="yr">{{object.created|date:"Y"}} </span>
+                </div>
+              </a> -->
+              <div class="text bg-white p-4">
+                <h3 class="heading"><a href="#">{{ object.subject }}</a></h3>
+               
+                <p>Status: {{ object.status  }}</p>
+                <p>Body: {{ object.body  }}</p>
+                <p>Created Date: {{ object.created  }}</p>
+                <p>Updated Date: {{ object.updated  }}</p>
+            
+                <div class="d-flex align-items-center mt-4">
+                 
+	                <p class="mb-0"><a href="{% url 'newsletter-delete' object.id %}" class="btn btn-outline-danger">Delete<span class="ion-ios-arrow-round"></span></a></p>
+                  <p class="ml-auto mb-0">
+                 
+                  </p>
+                  <p class="mb-0"><a href="{% url 'newsletter-update' object.id %}" class="btn btn-outline-primary">Update<span class="ion-ios-arrow-round"></span></a></p>
+	                
+                  <p class="ml-auto mb-0">
+                 
+                  </p>
+                  <div class="meta-date text-center p-2">
+                    <span class="day">{{object.created|date:"d"}} </span>
+                    <span class="mos">{{object.created|date:"M" }}</span>
+                    <span class="yr">{{object.created|date:"Y"}} </span>
+                  </div>
+                </div>
+                              
+              </div>
+              {% endif %}
+            </div>
+          </div>
+           
+        </div>
+        
+      
+        <!-- <div class="row no-gutters my-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                {% if is_paginated %}
+                {% if page_obj.has_previous %}
+               
+                <li>
+                  
+                  <a href="?page= {{ page_obj.previous_page_number }}"><i class="ion-ios-arrow-back"></i></a>
+                </li>
+                {% endif %}
+
+                {% for num in page_obj.paginator.page_range %}
+                
+                  {% if page_obj.number == num %}
+                  <li class="active"><a href="?page= {{ num }}">{{ num }}</a></li>
+                  {% elif num > page_obj.number|add:'-5' and num < page_obj.number|add:'5' %}
+                  <li><a href="?page= {{ num }}">{{ num }}</a></li>
+
+                  {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                <li><a href="?page= {{ page_obj.next_page_number }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                {% endif %}
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    
+		</section>
+
+
+{% endblock content %}
+

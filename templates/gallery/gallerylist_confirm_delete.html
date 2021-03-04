@@ -12,7 +12,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-2 bread">Gallery</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Gallery<i class="ion-ios-arrow-forward"></i></span></p>
+        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Gallery <i class="ion-ios-arrow-forward"></i> {{object}} <i class="ion-ios-arrow-forward"></i> </span></p>
           </div>
         </div>
       </div>
@@ -28,6 +28,7 @@
             <form method="post">{% csrf_token %}
                 <p>Are you sure you want to delete "{{ object }}"?</p>
                 <button class="btn btn-outline-danger" value="Confirm" type="submit">Yes, Delete</button>
+                <button class="btn btn-outline-primary" > <a href="{% url 'gallery-list' %}">No, Cancle</a></button>
                 <!-- <input type="submit" value="Confirm"> -->
             </form>
 

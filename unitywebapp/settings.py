@@ -24,9 +24,10 @@ SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
 
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -46,6 +47,8 @@ INSTALLED_APPS = [
     'pdfform',
     'crispy_forms',
     'django_cleanup.apps.CleanupConfig',
+    'hitcount',
+    'tinymce',
  
    
 ]
@@ -112,6 +115,27 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+TINYMCE_DEFAULT_CONFIG = {
+    'plugins': "table,spellchecker,paste,searchreplace,image,imagetools,media,codesample,link,code",
+    'theme': "silver",
+    'cleanup_on_startup': True,
+    'content_css': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+    'custom_undo_redo_levels': 10,
+    'menubar': True,
+    'statusbar': True,
+    'height': 500,
+    'toolbar_mode': 'wrap' ,
+    'toolbar': 'undo redo | styleselect | bold italic | link | alignleft aligncenter alignright | link image',
+    'extended_valid_elements': 'i[*],img[*]',
+    
+}
+
+TINYMCE_SPELLCHECKER = True
+TINYMCE_COMPRESSOR = True
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -156,8 +180,10 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'nabinst13@gmail.com'
-EMAIL_HOST_PASSWORD = 'ifpivodxodgpkekm'
+EMAIL_HOST_USER = 'clevelandunitycenter@gmail.com'
+EMAIL_HOST_PASSWORD = 'zdivlqvvxgslmltp'
+# EMAIL_HOST_USER = 'nabinst13@gmail.com'
+# EMAIL_HOST_PASSWORD = 'ifpivodxodgpkekm'
 
 #EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')

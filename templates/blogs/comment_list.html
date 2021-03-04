@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Our Blog</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section bg-light"> 
+        <div>
+            <h1> Test </h1>
+            {% for obj in object_list %}
+
+            <p>{{obj.content }}</p>
+            <p>{{obj.user }}</p>
+            <p><a href="{% url 'comment-detail-pk' obj.pk %}">{{obj.blogpost_connected }}</a></p>
+          
+            {% endfor %}
+        </div>
+    </section>
+
+
+{% endblock content %}
+
