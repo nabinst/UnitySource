@@ -6,7 +6,8 @@ from blogs.views import (PostListView,PostDetailView, PostCreateView,
 PostUpdateView, PostDeleteView,UserPostListView, CategoryPostListView, search, CommentDeleteView,
 CommentListView, CommentDetailView) 
 from pages.views import (IndexView, AboutListView,TeacherListView, PricingListView, 
-FutureListView, FutureDetailView,YouthListView, YouthDetailView,CoursesListView, CalendarView)
+FutureListView, FutureDetailView,YouthListView, YouthDetailView,CoursesListView, CalendarView,
+SummerView, VolunteersView)
 from django.contrib.auth import views as auth_views
 from sendemail.views import  contactView, successView
 from django.contrib import admin
@@ -14,7 +15,7 @@ from django.urls import path, include
 from pdfform.views import list_pdf, upload_pdf, delete_pdf
 from newsletters.views import (newsletter_signup, newsletter_unsubscribe, 
 NewsCreateView, NewsListView, NewsDetailView, NewsDeleteView, NewsUpdateView)
-from gallery.views import GalleryListView, GalleryCreateView, GalleryDeleteView
+from gallery.views import GalleryListView, GalleryCreateView, GalleryDeleteView, FacilitiesListView
 
 #from newsletters.custom_context_processor import newsletter_signup
 #, newsletter_unsubscribe
@@ -59,10 +60,16 @@ urlpatterns = [
 
     path('youth/', YouthListView.as_view(), name='youth-list'),
     path('youth/<int:pk>/', YouthDetailView.as_view(), name='youth-detail'),
-    
+
+    path('summer/', SummerView.as_view(), name='summer-list'),
+    path('volunteers/', VolunteersView.as_view(), name='volunteers-list'),
+
+
     path('gallery/', GalleryListView.as_view(), name='gallery-list'),
     path('gallery/add/', GalleryCreateView.as_view(), name='gallery-add'),
     path('gallery/<int:pk>/delete/', GalleryDeleteView.as_view(), name='gallery-delete'),
+    path('facilities/', FacilitiesListView.as_view(), name='facility-list'),
+    
 
     path('subscribe/',newsletter_signup, name='subscribe'),
     path('unsubscribe/',newsletter_unsubscribe, name='unsubscribe'),

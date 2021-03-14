@@ -3,7 +3,7 @@ from users.models import Profile
 from blogs.models import Post 
 from django.views.generic import ListView, DetailView
 from gallery.models import GalleryList
-from .models import ParentsProfile, OrgFacts, Future, Youth
+from .models import ParentsProfile, OrgFacts, Future, Youth, Summer, Volunteers
 
 
 class IndexView(ListView):
@@ -90,3 +90,11 @@ class YouthListView(ListView):
 
 class YouthDetailView(DetailView):
     model = Youth
+
+class SummerView(ListView):
+    model = Summer
+    ordering = '-date_posted'
+
+class VolunteersView(ListView):
+    model = Volunteers
+    

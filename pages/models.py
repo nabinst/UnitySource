@@ -49,3 +49,29 @@ class Youth(models.Model):
     
     def get_absolute_url(self):
         return reverse('youth-detail', kwargs={'pk': self.pk})
+
+
+class Summer(models.Model):
+    title = models.CharField(max_length=100)
+    image = ResizedImageField(size=[500, 400], upload_to='summer_pics')
+    overview = models.TextField(max_length=300)
+    content = HTMLField()
+    duration = models.CharField(max_length=100, blank=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    featured = models.BooleanField(default=False)
+
+
+    def __str__(self):
+            return self.title
+    
+    def get_absolute_url(self):
+        return reverse('summer-detail', kwargs={'pk': self.pk})
+
+class Volunteers(models.Model):
+    title = models.CharField(max_length=100)
+    image = ResizedImageField(size=[500, 400], upload_to='youth_pics')
+    overview = models.TextField(max_length=300)
+    content = HTMLField()
+    duration = models.CharField(max_length=100, blank=True)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    featured = models.BooleanField(default=False)
