@@ -91,10 +91,29 @@ class YouthListView(ListView):
 class YouthDetailView(DetailView):
     model = Youth
 
-class SummerView(ListView):
+class SummerListView(ListView):
     model = Summer
     ordering = '-date_posted'
 
-class VolunteersView(ListView):
+
+class SummerDetailView(DetailView):
+    model = Summer
+
+class VolunteersListView(ListView):
     model = Volunteers
     
+class VolunteersDetailView(DetailView):
+    model = Volunteers
+
+class PartnersListView(ListView):
+    model = Volunteers
+    template_name = 'pages/partner_list.html'
+
+class FacilitiesListView(ListView):
+    model = Volunteers
+    template_name = 'pages/facilities_list.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context_data = super().get_context_data(**kwargs)
+    #     context_data['facility_list'] = GalleryList.objects.filter(pic_cat='Building').order_by('-date_upload')
+    #     return context_data

@@ -25,12 +25,3 @@ class GalleryDeleteView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(GalleryDeleteView, self).delete(request, *args, **kwargs)
-
-class FacilitiesListView(ListView):
-    model = GalleryList
-    template_name = 'gallery/facilities_list.html'
-
-    def get_context_data(self, **kwargs):
-        context_data = super().get_context_data(**kwargs)
-        context_data['facility_list'] = GalleryList.objects.filter(pic_cat='Building').order_by('-date_upload')
-        return context_data

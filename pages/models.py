@@ -75,3 +75,9 @@ class Volunteers(models.Model):
     duration = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
+
+    def __str__(self):
+            return self.title
+    
+    def get_absolute_url(self):
+        return reverse('volunteers-detail', kwargs={'pk': self.pk})
