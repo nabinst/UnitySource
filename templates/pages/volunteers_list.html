@@ -20,18 +20,21 @@
 				<div class="row">
                     {% for obj in object_list %}
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({{ obj.image.url }});"></div>
+					
+						<div class="img" style="background-image: url({{ obj.image.url }});">
+						</div>
 						<div class="text bg-light p-4">
 							<h3><a href="{{ obj.get_absolute_url }}">{{obj.title}}</a></h3>
 							<p class="subheading"><span>{{obj.duration}} </span></p>
 							<p>{{obj.overview}}</p>
-							<p class="button text-center"><a href="{{ obj.get_absolute_url}}" class="btn btn-primary px-4 py-3">Details</a></p>
+							<!-- <p class="button text-center"><a href="{{ obj.get_absolute_url}}" class="btn btn-primary px-4 py-3">Details</a></p> -->
 						</div>
-						
+					
 					</div>
 	
                     {% endfor %}
 				</div>
+		
 			</div>
 		</section>
 

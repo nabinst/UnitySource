@@ -20,12 +20,16 @@
 				<div class="row">
                     {% for obj in object_list %}
 					<div class="col-md-6 course d-lg-flex ftco-animate">
-						<div class="img" style="background-image: url({{ obj.image.url }});"></div>
+						
+				
+						<div class="img"  style="background-image: url({{ obj.image.url }});"></div>
 						<div class="text bg-light p-4">
 							<h3><a href="{{ obj.get_absolute_url }}">{{obj.title}}</a></h3>
 							<p class="subheading"><span>{{obj.duration}}</span></p>
 							<p>{{obj.overview}}</p>
 						</div>
+					
+
 					</div>
 					<!-- <div class="col-md-6 course d-lg-flex ftco-animate">
 						<div class="img" style="background-image: url({% static 'images/course-2.jpg' %});"></div>
@@ -69,6 +73,7 @@
 					</div> -->
 
                     {% endfor %}
+					
 				</div>
 			</div>
 		</section>
