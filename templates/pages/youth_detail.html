@@ -9,8 +9,8 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Youth & Leadership</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{% url 'youth-list' %}" >Youth & Leadership <i class="ion-ios-arrow-forward"></i></a></span> <span>{{ object.title }} <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Youth Leadership</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{% url 'youth-list' %}" >Youth Leadership <i class="ion-ios-arrow-forward"></i></a></span> <span>{{ object.title }} <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
 				<div class="row">
           <div class="col-lg-12 ftco-animate">
             <h2 class="mb-3">{{ object.title }}</h2>
-            <p>{{ object.overview }}</p>
+            <!-- <p>{{ object.overview }}</p> -->
             <p>
               <img src="{{ object.image.url }}" alt="" class="img-fluid">
             </p>

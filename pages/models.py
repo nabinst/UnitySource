@@ -11,6 +11,7 @@ class ParentsProfile(models.Model):
     user_parent = models.BooleanField(default=False)
     position = models.CharField(max_length=100, blank=True, default='Parent')
     date_posted =models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
 
 class OrgFacts(models.Model):
@@ -25,6 +26,7 @@ class Future(models.Model):
     duration = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
+    date_updated = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -42,6 +44,7 @@ class Youth(models.Model):
     duration = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
+    date_updated = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -59,6 +62,7 @@ class Summer(models.Model):
     duration = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
+    date_updated = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
@@ -75,6 +79,7 @@ class Volunteers(models.Model):
     duration = models.CharField(max_length=100, blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
             return self.title

@@ -78,7 +78,7 @@ def CalendarView(request):
 
 class FutureListView(ListView):
     model = Future
-    ordering = '-date_posted'
+    ordering = '-date_updated'
 
 class FutureDetailView(DetailView):
     model = Future
@@ -86,14 +86,14 @@ class FutureDetailView(DetailView):
 
 class YouthListView(ListView):
     model = Youth
-    ordering = '-date_posted'
+    ordering = '-date_updated'
 
 class YouthDetailView(DetailView):
     model = Youth
 
 class SummerListView(ListView):
     model = Summer
-    ordering = '-date_posted'
+    ordering = '-date_updated'
 
 
 class SummerDetailView(DetailView):
@@ -101,6 +101,7 @@ class SummerDetailView(DetailView):
 
 class VolunteersListView(ListView):
     model = Volunteers
+    ordering = '-date_updated'
     
 class VolunteersDetailView(DetailView):
     model = Volunteers
@@ -108,6 +109,7 @@ class VolunteersDetailView(DetailView):
 class PartnersListView(ListView):
     model = Volunteers
     template_name = 'pages/partner_list.html'
+    ordering = '-date_updated'
 
 class FacilitiesListView(ListView):
     model = Volunteers
