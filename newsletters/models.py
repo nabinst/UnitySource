@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 class NewsletterUser(models.Model):
@@ -16,10 +17,11 @@ class NewsLetter(models.Model):
         ('Published', 'Published')
     ) 
     subject = models.CharField(max_length=250)
-    body = models.TextField()
+    body = HTMLField()
+    #body = models.TextField()
     email = models.ManyToManyField(NewsletterUser)
     status = models.CharField(max_length=10, choices=EMAIL_STATUS_CHOICES)
-    attachment = models.FileField(upload_to='newsletter/pdfs/')
+    attachment = models.FileField(upload_to='newsletter/pdfs/', blank=True, null=True )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

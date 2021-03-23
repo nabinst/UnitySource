@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-# ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
+DEBUG = False
+ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
 
-DEBUG = True
-ALLOWED_HOSTS = []
+#DEBUG = True
+#ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -188,3 +188,6 @@ EMAIL_HOST_PASSWORD = 'zdivlqvvxgslmltp'
 #EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
+MAILCHIMP_API_KEY='3701909788a55014390483744cdebbed-us1'
+MAILCHIMP_DATA_CENTER='us1'
+MAILCHIMP_EMAIL_LIST_ID ='5e2c31ef5e'

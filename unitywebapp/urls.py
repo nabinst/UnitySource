@@ -14,7 +14,7 @@ from django.contrib import admin
 from django.urls import path, include
 from pdfform.views import list_pdf, upload_pdf, delete_pdf
 from newsletters.views import (newsletter_signup, newsletter_unsubscribe, 
-NewsCreateView, NewsListView, NewsDetailView, NewsDeleteView, NewsUpdateView)
+NewsCreateView, NewsListView, NewsDetailView, NewsDeleteView, NewsUpdateView, email_list_signup)
 from gallery.views import GalleryListView, GalleryCreateView, GalleryDeleteView
 
 #from newsletters.custom_context_processor import newsletter_signup
@@ -40,6 +40,7 @@ urlpatterns = [
     path('calendar/',CalendarView, name='calendar'),
     path('',include('sendemail.urls')),
     path('user/<str:username>/', UserPostListView.as_view(), name='user-posts'),
+    path('subscribe/', email_list_signup, name='subscribe'),
 
     path('categories/<str:categories>/', CategoryPostListView.as_view(), name='categories-posts'),
    

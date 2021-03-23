@@ -174,7 +174,7 @@
                   <div class="meta">
                   <div><a href="#"><span class="icon-calendar"></span> {{obj.date_posted|timesince}} ago</a></div>
                     <div><a href="{% url 'user-posts' obj.author.username %}"><span class="icon-person"></span> {{obj.author.first_name}}</a></div>
-                <div><a href="{{ obj.get_absolute_url }}"><span class="icon-chat"></span> {{obj.number_of_comments}}</a></div>
+                <!-- <div><a href="{{ obj.get_absolute_url }}"><span class="icon-chat"></span> {{obj.number_of_comments}}</a></div> -->
                   </div>
                 </div>
               </div>

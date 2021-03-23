@@ -65,7 +65,7 @@
                   <li><a href="https://app.easytithe.com/App/Giving/bsumc" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Give Financial Support</a></li>
                   <li><a href=" https://clevelandbradleyfoundation.org/giving/current-funds-we-manage/unity-center-endowment-fund/" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Unity Center Endowment Fund</a></li>
                  
-                  <li><a href="https://smile.amazon.com/?_encoding=UTF8&_encoding=UTF8&ref_=smi_chpf_redirect" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Suppor through smile.amazon.com</a></li>
+                  <li><a href="https://smile.amazon.com/ch/62-0628879" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Suppor through smile.amazon.com</a></li>
                  
                   <li><a href="https://www.johnstonwoods.org/" target="_blank"><span class="ion-ios-arrow-round-forward mr-2"></span>Johnston Woods</a></li>
                   
@@ -78,17 +78,21 @@
             </div>
             <div class="col-md-6 col-lg-3">
               <div class="ftco-footer-widget mb-5">
-                  <h2 class="ftco-heading-2"><a href="{% url 'subscribe' %}">Subscribe Us!</a></h2>
+                  <!-- <h2 class="ftco-heading-2"><a href="{% url 'subscribe' %}">Subscribe Us!</a></h2> -->
+
+                  <h2 class="ftco-heading-2">Subscribe Us!</a></h2>
                
-                  <!-- <form action="." method="POST">
+                  <form action="{% url 'subscribe' %}" method="POST">
                   {% csrf_token %}
                  <div class="form-group">
-                      {{ newsletter_form }}
-                   <input type="email" name="email" id="email" class="form-control mb-2 text-center" placeholder="Enter email address">
+                      {{ form_news }}
+                   <!-- <input type="email" name="email" id="email" class="form-control mb-2 text-center" placeholder="Enter email address"> -->
                    <input type="submit" value="Subscribe" class="form-control submit px-3"></input> 
-                    <button type="submit" value="Subscribe" class="form-control submit px-3">Subscribe</button>
+                    <!-- <button type="submit" value="Subscribe" class="form-control submit px-3">Subscribe</button> -->
                   </div>
-                </form> -->
+                </form>
+
+
               </div>
               <div class="ftco-footer-widget mb-5">
                <h2 class="ftco-heading-2">Connect With Us</h2>
