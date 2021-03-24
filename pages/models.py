@@ -12,6 +12,7 @@ class ParentsProfile(models.Model):
     position = models.CharField(max_length=100, blank=True, default='Parent')
     date_posted =models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+    featured = models.BooleanField(default=False)
 
 
 class OrgFacts(models.Model):

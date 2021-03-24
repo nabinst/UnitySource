@@ -20,7 +20,7 @@ def contactView(request):
                 return HttpResponse('Invalid header found.')
             return redirect('contact_success')
 
-    blog_latest = Post.objects.all().order_by('-date_posted')[0:3]
+    blog_latest = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
 
     context = {
         'form': form,

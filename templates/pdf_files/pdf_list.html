@@ -11,7 +11,7 @@
       <div class="col-md-9 ftco-animate text-center">
         <h1 class="mb-2 bread">About Us </h1>
         <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About Us <i class="ion-ios-arrow-forward"></i></span>
-          <span>PDF Forms <i class="ion-ios-arrow-forward"></i></span></p>
+          <span>PDF Form Downloads <i class="ion-ios-arrow-forward"></i></span></p>
       </div>
     </div>
   </div>
@@ -22,6 +22,13 @@
 
  
   <div class="container">
+    <div class="row justify-content-center pb-2">
+      <div class="col-md-8 text-center heading-section ftco-animate">
+        <h2 class="mb-4"><span>PDF Form </span>Downloads </h2>
+        <p></p>
+      </div>
+    </div>	
+
     {% if request.user.is_staff %}
     <div class="col-md-12 text-center ftco-animate">
       <!-- <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1> -->
@@ -39,7 +46,7 @@
           <p>{{obj.overview}}</p>
           <div class="d-flex align-items-center mt-4">
              
-            <p class="mb-0"><a href="{{pdf_list.pdf.url}}" target="_blank" class="btn btn-primary">Download <span class="ion-ios-arrow-round-down"></span></a></p>
+            <p class="mb-0"><a href="{{obj.pdf.url}}" target="_blank" class="btn btn-primary">Download <span class="ion-ios-arrow-round-down"></span></a></p>
             <p class="ml-auto mb-0">
              
               <!-- <a href="#" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>

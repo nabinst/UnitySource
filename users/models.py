@@ -18,6 +18,7 @@ class Profile(models.Model):
     facebook = models.CharField( max_length=300, blank=True,default='#')
     google = models.CharField( max_length=300, blank=True,default='#')
     tweeter = models.CharField( max_length=300, blank=True,default='#')
+    featured = models.BooleanField(default=False)
     
     def __str__(self):
         return f'{self.user.username} Profile'

@@ -13,17 +13,17 @@ class IndexView(ListView):
     
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['teacher_latest'] = Profile.objects.filter(teacher=True).order_by('?')[0:4]
+        context_data['teacher_latest'] = Profile.objects.filter(featured=True).order_by('?')[0:4]
         context_data['teacher_count'] = Profile.objects.all().count()
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         #teacher_count = Profile.objects.all().count()
         #teacher_latest = Profile.objects.filter(teacher=True).order_by('?')[0:4]
         #featured = Post.objects.filter(featured=True)
         #latest = Post.objects.order_by('-timestamp')[0:3]
         context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
-        context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
-        context_data['future_program'] = Future.objects.all().order_by('-date_posted')[0:6]
-        context_data['youth_program'] = Youth.objects.all().order_by('-date_posted')[0:4]
+        context_data['parent_comment'] = ParentsProfile.objects.filter(featured=True).order_by('-date_posted')[0:6]
+        context_data['future_program'] = Future.objects.filter(featured=True).order_by('-date_posted')[0:6]
+        context_data['youth_program'] = Youth.objects.filter(featured=True).order_by('-date_posted')[0:4]
         context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
@@ -37,9 +37,9 @@ class AboutListView(ListView):
         context_data = super().get_context_data(**kwargs)
         #context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
         context_data['galary_pic'] = GalleryList.objects.all().order_by('-date_upload')[0:4]
-        context_data['parent_comment'] = ParentsProfile.objects.all().order_by('-date_posted')[0:6]
+        context_data['parent_comment'] = ParentsProfile.objects.filter(featured=True).order_by('-date_posted')[0:6]
         context_data['teacher_count'] = Profile.objects.all().count()
-        context_data['teacher_latest'] = Profile.objects.filter(teacher=True).order_by('?')[0:4]
+        context_data['teacher_latest'] = Profile.objects.filter(featured=True).order_by('?')[0:4]
         context_data['org_fact'] = OrgFacts.objects.all()
         return context_data
 
@@ -49,8 +49,8 @@ class TeacherListView(ListView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['teachers'] = Profile.objects.filter(user_staff=True)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['teachers'] = Profile.objects.filter(featured=True)
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         return context_data
 
 class PricingListView(ListView):
@@ -59,7 +59,7 @@ class PricingListView(ListView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         return context_data
 
 class CoursesListView(ListView):
@@ -68,7 +68,7 @@ class CoursesListView(ListView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         return context_data
 
 

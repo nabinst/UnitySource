@@ -12,7 +12,10 @@
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-2 bread">About Us</h1>
             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span>
+              <span><a href= "{% url 'gallery-list' %}">Unity Gallery <i class="ion-ios-arrow-forward"></i></a></span>
               <span>Add Pictures <i class="ion-ios-arrow-forward"></i></span></p>
+
+             
           </div>
         </div>
       </div>
@@ -20,6 +23,13 @@
 		
 	<section class="ftco-gallery">
     	<div class="container-wrap">
+        <div class="row justify-content-center pb-2">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <h2 class="mb-4"><span>Add </span>Pictures to Gallery </h2>
+            <p></p>
+          </div>
+        </div>	
+
     		<div class="row no-gutters col-6 offset-1 mt-5 mb-5">
 			
             <form method="post" enctype="multipart/form-data">{% csrf_token %}
