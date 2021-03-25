@@ -24,7 +24,7 @@ SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
+ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
 # DEBUG = True
 # ALLOWED_HOSTS = []
@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'hitcount',
     'tinymce',
- 
-   
+
+
 ]
 
 MIDDLEWARE = [
@@ -128,7 +128,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'toolbar_mode': 'wrap' ,
     'toolbar': 'undo redo | styleselect | bold italic | link | alignleft aligncenter alignright | link image',
     'extended_valid_elements': 'i[*],img[*]',
-    
+
 }
 
 TINYMCE_SPELLCHECKER = True
