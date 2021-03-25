@@ -71,7 +71,7 @@
 	                <p class="ml-auto mb-0">
                    
 	                	<a href="{% url 'user-posts' post.author.username %}" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>
-	                	<a href="{{ post.get_absolute_url }}" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a>
+	                	<!-- <a href="{{ post.get_absolute_url }}" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a> -->
                     
                   </p>
                 </div>
