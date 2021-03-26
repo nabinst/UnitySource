@@ -23,5 +23,4 @@ class BlogForm(forms.ModelForm):
     )
     class Meta:
         model = Post
-        fields = ['title','overview', 'content','thumbnail', 'categories','featured','previous_post',
-'next_post']
+        fields = ['title','overview', 'content','thumbnail', 'categories','featured']
