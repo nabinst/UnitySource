@@ -41,10 +41,11 @@
 								<div class="faded">
 									<p>{{ teacher.bio }}</p>
 									<ul class="ftco-social text-center">
-		                <li class="ftco-animate"><a href="{{ teacher.tweeter}}"><span class="icon-twitter"></span></a></li>
-		                <li class="ftco-animate"><a href="{{ teacher.facebook }}"><span class="icon-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="{{ teacher.google }}"><span class="icon-google-plus"></span></a></li>
-		                <li class="ftco-animate"><a href="http://www.facebook.com"><span class="icon-instagram"></span></a></li>
+		                <li class="ftco-animate"><a href="{{ teacher.tweeter}}" target="_blank"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="{{ teacher.facebook }}" target="_blank"><span class="icon-facebook"></span></a></li>
+						<li><a href="mailto:{{ teacher.user.email }}" target="_blank"><i class="fas fa-envelope-open-text"></i></a></li>
+		                <!-- <li class="ftco-animate"><a href="mailto:{{ teacher.user_email }}" target="_blank"><span class="icon-google"></span></a></li> -->
+		                <!-- <li class="ftco-animate"><a href="{{ teacher.tweeter}}" target="_blank"><span class="icon-instagram"></span></a></li> -->
 		              </ul>
 	              </div>
 							</div>

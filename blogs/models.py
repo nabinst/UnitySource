@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from hitcount.models import HitCountMixin, HitCount
 from django.contrib.contenttypes.fields import GenericRelation
+from django_resized import ResizedImageField
 
 
 
@@ -23,7 +24,8 @@ class Post(models.Model):
     #view_count = models.IntegerField(default=0)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', 
     related_query_name='hit_count_generic_relation')
-    thumbnail = models.ImageField()
+    #thumbnail = models.ImageField()
+    thumbnail = ResizedImageField(size=[800, 530], blank=True, null=True, upload_to='post_pics')
     categories = models.ManyToManyField(Category)
     previous_post = models.ForeignKey('self', related_name ='previous',on_delete=models.SET_NULL, blank=True, null=True)
     next_post = models.ForeignKey('self', related_name='next', on_delete=models.SET_NULL, blank=True, null=True)
