@@ -6,7 +6,7 @@ from django_resized import ResizedImageField
 
 class ParentsProfile(models.Model):
     name = models.CharField(max_length=100)
-    parent_image = ResizedImageField(size=[200, 200], blank=True, null=True, upload_to='parent_pics')
+    parent_image = ResizedImageField(size=[200, 200], default='default.jpg', upload_to='parent_pics')
     comment = models.TextField(max_length=500, blank=True)
     user_parent = models.BooleanField(default=False)
     position = models.CharField(max_length=100, blank=True, default='Parent')
@@ -21,7 +21,7 @@ class OrgFacts(models.Model):
     
 class Future(models.Model):
     title = models.CharField(max_length=100)
-    image = ResizedImageField(size=[500, 400], upload_to='future_pics')
+    image = ResizedImageField(size=[500, 400], default='default.jpg', upload_to='future_pics')
     overview = models.TextField(max_length=300)
     content = HTMLField()
     duration = models.CharField(max_length=100, blank=True)
