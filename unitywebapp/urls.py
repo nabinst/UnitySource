@@ -16,6 +16,7 @@ from pdfform.views import list_pdf, upload_pdf, delete_pdf
 from newsletters.views import (newsletter_signup, newsletter_unsubscribe, 
 NewsCreateView, NewsListView, NewsDetailView, NewsDeleteView, NewsUpdateView, email_list_signup)
 from gallery.views import GalleryListView, GalleryCreateView, GalleryDeleteView
+from django.views.generic.base import TemplateView
 
 #from newsletters.custom_context_processor import newsletter_signup
 #, newsletter_unsubscribe
@@ -69,7 +70,7 @@ urlpatterns = [
     path('volunteers/', VolunteersListView.as_view(), name='volunteers-list'),
 
     path('partners/', PartnersListView.as_view(), name='partners-list'),
-
+    path('history/',TemplateView.as_view(template_name='pages/history.html'), name='history'),
 
     path('gallery/', GalleryListView.as_view(), name='gallery-list'),
     path('gallery/add/', GalleryCreateView.as_view(), name='gallery-add'),
