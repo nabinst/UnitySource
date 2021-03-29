@@ -25,6 +25,7 @@ SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
+
 DEBUG = False
 ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
@@ -32,12 +33,11 @@ ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 # ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
 
 
-DEBUG = False
-ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
-
-
 # DEBUG = True
 # ALLOWED_HOSTS = []
+
+
+
 
 # Application definition
 
