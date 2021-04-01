@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from tinymce.models import HTMLField
+from tinymce import HTMLField
 from django_resized import ResizedImageField
 
 

@@ -1,5 +1,5 @@
 from django.db import models
-from tinymce.models import HTMLField
+from tinymce import HTMLField
 from django.contrib.auth.models import User
 from django.urls import reverse
 from hitcount.models import HitCountMixin, HitCount
