@@ -202,9 +202,11 @@ TINYMCE_DEFAULT_CONFIG  = {
     'contextmenu': 'formats | link image',
     'content_css': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
     'menubar': True,
+    'toolbar_mode': 'wrap' ,
     'inline': False,
     'statusbar': True,
     'height': 360,
+    'width':900, 
 }
 
 
