@@ -126,24 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 
-TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace,image,imagetools,media,codesample,link,code",
-    'theme': "silver",
-    'cleanup_on_startup': True,
-    'content_css': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
-    'custom_undo_redo_levels': 10,
-    'menubar': True,
-    'statusbar': True,
-    'height': 500,
-    'toolbar_mode': 'wrap' ,
-    'toolbar': 'undo redo | styleselect | bold italic | link | alignleft aligncenter alignright | link image',
-    'extended_valid_elements': 'i[*],img[*]',
-
-}
-
-TINYMCE_SPELLCHECKER = True
-TINYMCE_COMPRESSOR = True
-
 
 
 # Internationalization
@@ -183,6 +165,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH, 'static')
 
+
 #MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
 
 
@@ -201,3 +184,48 @@ EMAIL_HOST_PASSWORD = 'zdivlqvvxgslmltp'
 MAILCHIMP_API_KEY='3701909788a55014390483744cdebbed-us1'
 MAILCHIMP_DATA_CENTER='us1'
 MAILCHIMP_EMAIL_LIST_ID ='5e2c31ef5e'
+
+
+
+
+# TINYMCE_JS_URL = os.path.join(STATIC_URL, 'tinymce/js/tinymce/tinymce.min.js')
+# TINYMCE_DEFAULT_CONFIG = {
+#     'plugins': "table,spellchecker,paste,searchreplace,image,imagetools,media,codesample,link,code",
+#     'theme': "silver",
+#     'cleanup_on_startup': True,
+#     'content_css': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+#     'custom_undo_redo_levels': 10,
+#     'menubar': True,
+#     'statusbar': True,
+#     'height': 500,
+#     'toolbar_mode': 'wrap' ,
+#     'toolbar': 'undo redo | styleselect | bold italic | link | alignleft aligncenter alignright | link image',
+#     'extended_valid_elements': 'i[*],img[*]',
+
+# }
+TINYMCE_DEFAULT_CONFIG  = {
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': 'link image preview codesample contextmenu table code',
+    'toolbar1': 'bold italic underline | alignleft aligncenter alignright alignjustify '
+               '| bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'contextmenu': 'formats | link image',
+    'content_css': 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+    'menubar': True,
+    'inline': False,
+    'statusbar': True,
+    'height': 360,
+}
+
+
+TINYMCE_SPELLCHECKER = False
+TINYMCE_COMPRESSOR = False
+#TINYMCE_JS_URL = '/static/tinymce/tinymce.min.js'
+# TINYMCE_JS_URL = os.path.join(STATIC_URL, '/tinymce/tinymce.min.js')
+#TINYMCE_JS_URL = '//cdn.tinymce.com/4/tinymce.min.js'
+
+# STATICFILES_DIR = os.path.join(BASE_DIR, 'static_in_env')
+# # STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_JS_DIR = os.path.join(STATICFILES_DIR, "js")
+# TINYMCE_JS_ROOT = os.path.join(STATIC_JS_DIR, "tinymce")
+# TINYMCE_JS_URL = os.path.join(TINYMCE_JS_ROOT, "tiny_mce.js")
