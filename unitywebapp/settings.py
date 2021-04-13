@@ -26,15 +26,15 @@ SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
 
 
 
-# DEBUG = False
-# ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
+DEBUG = False
+ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
 # DEBUG = False
 # ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
 
 
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 
 
@@ -216,7 +216,7 @@ TINYMCE_DEFAULT_CONFIG  = {
     'inline': False,
     'statusbar': True,
     'height': 360,
-    'width':900, 
+    'width':900,
 }
 
 
