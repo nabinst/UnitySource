@@ -36,10 +36,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
-# DEBUG = False
-# ALLOWED_HOSTS = ['nabinst.pythonanywhere.com']
-
-
 # DEBUG = True
 # ALLOWED_HOSTS = []
 
@@ -182,11 +178,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-# EMAIL_HOST_USER = 'nabinst13@gmail.com'
-# EMAIL_HOST_PASSWORD = 'ifpivodxodgpkekm'
 
-#EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 MAILCHIMP_API_KEY= env('MAILCHIMP_API_KEY')
 MAILCHIMP_DATA_CENTER=env('MAILCHIMP_DATA_CENTER')
@@ -229,12 +221,3 @@ TINYMCE_DEFAULT_CONFIG  = {
 
 TINYMCE_SPELLCHECKER = False
 TINYMCE_COMPRESSOR = False
-#TINYMCE_JS_URL = '/static/tinymce/tinymce.min.js'
-# TINYMCE_JS_URL = os.path.join(STATIC_URL, '/tinymce/tinymce.min.js')
-#TINYMCE_JS_URL = '//cdn.tinymce.com/4/tinymce.min.js'
-
-# STATICFILES_DIR = os.path.join(BASE_DIR, 'static_in_env')
-# # STATIC_ROOT = os.path.join(BASE_DIR, "static")
-# STATIC_JS_DIR = os.path.join(STATICFILES_DIR, "js")
-# TINYMCE_JS_ROOT = os.path.join(STATIC_JS_DIR, "tinymce")
-# TINYMCE_JS_URL = os.path.join(TINYMCE_JS_ROOT, "tiny_mce.js")
