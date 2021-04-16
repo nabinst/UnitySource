@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ck()(z*+p^5_68gqh&p#ren(lt60g)cy2ch)pg$wh7fms&g#5#'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -173,17 +180,17 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'clevelandunitycenter@gmail.com'
-EMAIL_HOST_PASSWORD = 'zdivlqvvxgslmltp'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 # EMAIL_HOST_USER = 'nabinst13@gmail.com'
 # EMAIL_HOST_PASSWORD = 'ifpivodxodgpkekm'
 
 #EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 #EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
-MAILCHIMP_API_KEY='3701909788a55014390483744cdebbed-us1'
-MAILCHIMP_DATA_CENTER='us1'
-MAILCHIMP_EMAIL_LIST_ID ='5e2c31ef5e'
+MAILCHIMP_API_KEY= env('MAILCHIMP_API_KEY')
+MAILCHIMP_DATA_CENTER=env('MAILCHIMP_DATA_CENTER')
+MAILCHIMP_EMAIL_LIST_ID =env('MAILCHIMP_EMAIL_LIST_ID')
 
 
 
