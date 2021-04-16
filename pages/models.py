@@ -28,7 +28,7 @@ class Future(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
-
+    sort = models.IntegerField(default=99)
 
     def __str__(self):
             return self.title
@@ -46,7 +46,7 @@ class Youth(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
-
+    sort = models.IntegerField(default=99)
 
     def __str__(self):
             return self.title
@@ -64,7 +64,7 @@ class Summer(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
-
+    sort = models.IntegerField(default=99)
 
     def __str__(self):
             return self.title
@@ -81,7 +81,8 @@ class Volunteers(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=False)
     date_updated = models.DateTimeField(auto_now=True)
-
+    sort = models.IntegerField(default=99)
+    
     def __str__(self):
             return self.title
     

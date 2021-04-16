@@ -78,33 +78,53 @@ def CalendarView(request):
 
 class FutureListView(ListView):
     model = Future
-    ordering = '-date_updated'
+    ordering = 'sort'
 
 class FutureDetailView(DetailView):
     model = Future
+    
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['future_list'] = Future.objects.filter(featured=True).order_by('sort')
+        return context_data
 
 
 class YouthListView(ListView):
     model = Youth
-    ordering = '-date_updated'
+    ordering = 'sort'
 
 class YouthDetailView(DetailView):
     model = Youth
 
+    def get_context_data(self, **kwargs):
+            context_data = super().get_context_data(**kwargs)
+            context_data['youth_list'] = Youth.objects.filter(featured=True).order_by('sort')
+            return context_data
+
 class SummerListView(ListView):
     model = Summer
-    ordering = '-date_updated'
+    ordering = 'sort'
 
 
 class SummerDetailView(DetailView):
     model = Summer
+   
+    def get_context_data(self, **kwargs):
+            context_data = super().get_context_data(**kwargs)
+            context_data['summer_list'] = Summer.objects.filter(featured=True).order_by('sort')
+            return context_data
 
 class VolunteersListView(ListView):
     model = Volunteers
-    ordering = '-date_updated'
+    ordering = 'sort'
     
 class VolunteersDetailView(DetailView):
     model = Volunteers
+ 
+    def get_context_data(self, **kwargs):
+            context_data = super().get_context_data(**kwargs)
+            context_data['volunteer_list'] = Volunteers.objects.filter(featured=True).order_by('sort')
+            return context_data
 
 class PartnersListView(ListView):
     model = Volunteers
