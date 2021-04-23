@@ -17,7 +17,7 @@ class GalleryList(models.Model):
         ('Gallary', 'Gallary')
         )
     title = models.CharField(max_length=100)
-    gallery_image = ResizedImageField(size=[800, 530], blank=True, null=True, upload_to='gallary_pics')
+    gallery_image = ResizedImageField(size=[800, 530], blank=False, null=False, upload_to='gallary_pics')
     date_upload =models.DateTimeField(auto_now_add=True)
     featured = models.BooleanField(default=True)
     pic_cat = models.CharField(max_length=30, choices=PIC_CAT_CHOICES, default='Gallary')

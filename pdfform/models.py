@@ -10,7 +10,7 @@ CAT_CHOICES = (
 class FormPdf(models.Model):
     title = models.CharField(max_length=100)
     overview = models.CharField(max_length=400)
-    pdf = models.FileField(upload_to='pdfform/pdfs/')
+    pdf = models.FileField(upload_to='pdfform/pdfs/', blank=False, null=False)
     category = models.CharField(max_length=6, choices=CAT_CHOICES, default='others')
 
     def __str__(self):

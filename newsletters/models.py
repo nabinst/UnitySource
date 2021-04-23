@@ -22,7 +22,7 @@ class NewsLetter(models.Model):
     #body = models.TextField()
     email = models.ManyToManyField(NewsletterUser)
     status = models.CharField(max_length=10, choices=EMAIL_STATUS_CHOICES)
-    attachment = models.FileField(upload_to='newsletter/pdfs/', blank=True, null=True )
+    attachment = models.FileField(upload_to='newsletter/pdfs/', blank=False, null=False )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

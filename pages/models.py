@@ -21,7 +21,7 @@ class OrgFacts(models.Model):
     
 class Future(models.Model):
     title = models.CharField(max_length=100)
-    image = ResizedImageField(size=[500, 400], default='default.jpg', upload_to='future_pics')
+    image = ResizedImageField(size=[500, 400],  blank=False, null=False, upload_to='future_pics')
     overview = models.TextField(max_length=300)
     content = HTMLField()
     duration = models.CharField(max_length=100, blank=True)
@@ -39,7 +39,7 @@ class Future(models.Model):
 
 class Youth(models.Model):
     title = models.CharField(max_length=100)
-    image = ResizedImageField(size=[500, 400], upload_to='youth_pics')
+    image = ResizedImageField(size=[500, 400],  blank=False, null=False ,upload_to='youth_pics')
     overview = models.TextField(max_length=300)
     content = HTMLField()
     duration = models.CharField(max_length=100, blank=True)
@@ -57,7 +57,7 @@ class Youth(models.Model):
 
 class Summer(models.Model):
     title = models.CharField(max_length=100)
-    image = ResizedImageField(size=[500, 400], upload_to='summer_pics')
+    image = ResizedImageField(size=[500, 400], blank=False, null=False, upload_to='summer_pics')
     overview = models.TextField(max_length=300)
     content = HTMLField()
     duration = models.CharField(max_length=100, blank=True)
@@ -74,7 +74,7 @@ class Summer(models.Model):
 
 class Volunteers(models.Model):
     title = models.CharField(max_length=100)
-    image = ResizedImageField(size=[500, 400], upload_to='youth_pics')
+    image = ResizedImageField(size=[500, 400],  blank=False, null=False, upload_to='youth_pics')
     overview = models.TextField(max_length=300)
     content = HTMLField()
     duration = models.CharField(max_length=100, blank=True)
