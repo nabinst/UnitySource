@@ -30,15 +30,15 @@ from hitcount.views import HitCountDetailView
 class PostListView(ListView):
     model = Post
     template_name = 'blogs/blog.html'
-    context_object_name = 'posts'
+    #context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-       
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
-        context_data['category_count'] = Post.objects.values('categories__title').annotate(Count('categories__title'))
+        context_data['posts'] = Post.objects.filter(featured=True).order_by('-date_posted')
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
+        context_data['category_count'] = Post.objects.filter(featured=True).values('categories__title').annotate(Count('categories__title'))
         return context_data
 
 class UserPostListView(ListView):
@@ -49,7 +49,7 @@ class UserPostListView(ListView):
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
-        return Post.objects.filter(author=user).order_by('-date_posted')
+        return Post.objects.filter(featured=True).filter(author=user).order_by('-date_posted')
 
 class CategoryPostListView(ListView):
     model = Post
@@ -59,7 +59,7 @@ class CategoryPostListView(ListView):
 
     def get_queryset(self):
         category_id = self.kwargs['categories']
-        category_list = Post.objects.filter(categories__title=category_id)
+        category_list = Post.objects.filter(featured=True).filter(categories__title=category_id)
         return category_list
 
 class PostDetailView(HitCountDetailView):
@@ -72,7 +72,7 @@ class PostDetailView(HitCountDetailView):
 
         context_data = super().get_context_data(**kwargs)
        
-        comments = Paginator(self.object.comments.all().order_by('-timestamp'),6)
+        comments = Paginator(self.object.comments.order_by('-timestamp'),6)
         page_number = self.request.GET.get('page')
         page_obj = comments.get_page(page_number)
         context_data['comments'] = page_obj
@@ -85,11 +85,11 @@ class PostDetailView(HitCountDetailView):
             context_data['comment_form'] = CommentForm(instance=self.request.user)
         
         post =  self.get_object()
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
        #context_data['comment'] = Comment.objects.filter(blogpost_connected=post)
 
         context_data['category_count'] = Post.objects.values('categories__title').annotate(Count('categories__title'))
-        context_data['popular_posts'] = Post.objects.order_by('-hit_count_generic__hits')[:3]
+        context_data['popular_posts'] = Post.objects.filter(featured=True).order_by('-hit_count_generic__hits')[:3]
         return context_data
 
 
@@ -123,7 +123,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         context_data['name_title'] ='Create'
         return context_data
 
@@ -137,7 +137,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['blog_latest'] = Post.objects.all().order_by('-date_posted')[0:3]
+        context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         context_data['name_title'] ='Update'
         return context_data
 

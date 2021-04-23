@@ -48,98 +48,34 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item "><a href="/" class="nav-link  pl-0">Home</a></li>
-	        	<!-- <li class="nav-item "><a href="{% url 'unity-about' %}" class="nav-link">About Us</a></li> -->
-				 {% if  request.user.is_staff or request.user.is_authenticated  %}
-				<li class="nav-item dropdown">
+	        	<li class="nav-item  {% if request.get_full_path == '/' %} active {% endif %} " ><a href="/" class="nav-link pl-0">Home</a></li>
+	        	
+			
+				<li class="nav-item dropdown  {% if request.get_full_path == '/about/' %} active {% endif %} ">
 					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="{% url 'unity-about' %}" role="button" aria-haspopup="true" aria-expanded="false">About</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'unity-about' %}">Mission</a>
-					<a class="dropdown-item" href="{% url 'history' %}">History</a>
-					<a class="dropdown-item" href="{% url 'unity-teacher' %}">Staff & Leadership</a>
-					<a class="dropdown-item" href="{% url 'facility-list' %}">Facilities</a>
-					<a class="dropdown-item" href="{% url 'partners-list' %}">Our Partners</a>
-					<a class="dropdown-item" href="{% url 'blog-home' %}">Unity Updates</a>
-					<!-- <a class="dropdown-item" href="{% url 'post-create' %}">Create Updates</a> -->
-					<a class="dropdown-item" href="{% url 'gallery-list' %}">Gallery</a>
-					<a class="dropdown-item" href="{% url 'list_pdf' %}">PDF Downloads</a>
+					<a class="dropdown-item {% if request.get_full_path == '/about/' %} active {% endif %}" href="{% url 'unity-about' %}" >Mission</a>
+					<a class="dropdown-item {% if request.get_full_path == '/history/' %} active {% endif %}"  href="{% url 'history' %}" >History</a>
+					<a class="dropdown-item {% if request.get_full_path == '/leadership/' %} active {% endif %}" href="{% url 'unity-teacher' %}">Staff & Leadership</a>
+					<a class="dropdown-item {% if request.get_full_path == '/facilities/' %} active {% endif %}"  href="{% url 'facility-list' %}">Facilities</a>
+					<a class="dropdown-item {% if request.get_full_path == '/partners/' %} active {% endif %}" href="{% url 'partners-list' %}">Our Partners</a>
+					<a class="dropdown-item {% if request.get_full_path == '/post/' %} active {% endif %}" href="{% url 'blog-home' %}">Unity Updates</a>
+					
+					<a class="dropdown-item {% if request.get_full_path == '/gallery/' %} active {% endif %}" href="{% url 'gallery-list' %}">Gallery</a>
+					<a class="dropdown-item {% if request.get_full_path == '/pdf/' %} active {% endif %}" href="{% url 'list_pdf' %}">PDF Downloads</a>
 					
 					</div>
 				</li>
-				{% else %}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="{% url 'unity-about' %}" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'unity-about' %}">Mission</a>
-					<a class="dropdown-item" href="{% url 'history' %}">History</a>
-					<a class="dropdown-item" href="{% url 'unity-teacher' %}">Staff & Leadership</a>
-					<a class="dropdown-item" href="{% url 'facility-list' %}">Facilities</a>
-					<a class="dropdown-item" href="{% url 'partners-list' %}">Our Partners</a>
-					<a class="dropdown-item" href="{% url 'blog-home' %}">Unity Updates</a>
-					<a class="dropdown-item" href="{% url 'gallery-list' %}">Gallery</a>
-					<a class="dropdown-item" href="{% url 'list_pdf' %}">PDF Downloads</a>
-					
-					</div>
-				</li>
-				{% endif %}
-	        	<li class="nav-item"><a href="{% url 'future-list' %}" class="nav-link">Future</a></li>
-				<li class="nav-item "><a href="{% url 'youth-list' %}" class="nav-link">Youth Leadership</a></li>
-	        	<li class="nav-item "><a href="{% url 'summer-list' %}" class="nav-link">Summer</a></li>
-				<li class="nav-item "><a href="{% url 'volunteers-list' %}" class="nav-link">Volunteers</a></li>
-	        	<!-- <li class="nav-item"><a href="{% url 'blog-home' %}"class="nav-link">Unity Updates</a></li> -->
-				
-				<!-- {% if request.user.is_staff %}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Unity Updates</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'blog-home' %}">Posts</a>
-					<a class="dropdown-item" href="{% url 'post-create' %}">Create Post</a>
-					<a class="dropdown-item" href="{% url 'unity-teacher' %}">Staff & Leadership</a>
-					<a class="dropdown-item" href="{% url 'gallery-list' %}">Gallery</a>
-					<a class="dropdown-item" href="{% url 'list_pdf' %}">PFD Downloads</a>
-					<a class="dropdown-item" href="{% url 'upload_pdf' %}">Upload PDF Form</a>
-					<a class="dropdown-item" href="{% url 'newsletter-list' %}">Newsletters</a> -->
-					<!-- <a class="dropdown-item" href="{% url 'newsletter-create' %}">Create Newsletter</a> -->
-					<!-- <a class="dropdown-item" href="{% url 'calendar' %}">Calendar</a>
-					</div>
-				</li>
-				{% else %}
-				<li class="nav-item"><a href="{% url 'blog-home' %}" class="nav-link">Unity Updates</a></li>
-				{% endif %} -->
+							
+			
+	        	<li class="nav-item  {% if request.get_full_path == '/future/' %} %} active {% endif %} "><a href="{% url 'future-list' %}" class='nav-link' >Future</a></li>
+				<li class="nav-item  {% if request.get_full_path == '/youth/' %} %} active {% endif %}  "><a href="{% url 'youth-list' %}" class="nav-link">Youth Leadership</a></li>
+	        	<li class="nav-item  {% if request.get_full_path == '/summer/' %} %} active {% endif %} "><a href="{% url 'summer-list' %}" class="nav-link">Summer</a></li>
+				<li class="nav-item  {% if request.get_full_path == '/volunteers/' %} %} active {% endif %} "><a href="{% url 'volunteers-list' %}" class="nav-link">Volunteers</a></li>
+	        									
+				<li class="nav-item  {% if request.get_full_path == '/contact/' %} %} active {% endif %} "><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
 
-			  	<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Useful Links</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'unity-teacher' %}">Staff & Leadership</a>
-					<a class="dropdown-item" href="{% url 'gallery-list' %}">Gallery</a>
-					<a class="dropdown-item" href="{% url 'list_pdf' %}">PFD Downloads</a>
-					
-					
-					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#three">Coming Soon</a> 
-					</div>
-				</li> -->
-				
-				<li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
-
-				<!-- Login Profile Begain
-			 	{% if user.is_authenticated %}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-						<img src="{{ user.profile.image.url }}" class="rounded-circle " width="40" height="40"> <b class="caret"></b></a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'profile' %}">Edit Profile</a>
-					<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-
-					
-					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#three">Coming Soon</a>
-					</div>
-				</li>  
-				{% else %}
-				<li class="nav-item"><a class="nav-item nav-link" href="{% url 'login' %}">Login</a></li>
-				<li class="nav-item"><a class="nav-item nav-link" href="{% url 'register' %}">Register</a></li>
-				{% endif %} -->
+			
 			
 			</ul>
 		

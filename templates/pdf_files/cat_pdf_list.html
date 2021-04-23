@@ -20,6 +20,9 @@
 
 <section class="ftco-section">
 
+  <!-- <p class="mb-2" align="center" ><a href="{% url 'category_list_pdf' 'youth' %}" >Youth  <span></span></a></p> -->
+ 
+
  
   <div class="container">
     <div class="row justify-content-center pb-2">
@@ -38,22 +41,23 @@
     {% else %}
     <div class="row">
       <div class="col-md-6 text-left ftco-animate mb-5">
-       
+        <!-- <h1 class="mb-4">Kids Are The Best <span>Explorers In The World</span></h1> -->
+        <!-- <p class="mb-2" align="left" ><a href="{% url 'upload_pdf' %}" class="btn btn-danger px-4 py-3 mt-3">Upload New PFD Forms  <span class="ion-ios-arrow-round-up"></span></a></p> -->
       </div>
     {% endif %}
     <div class="col-md-6 text-right ftco-animate">
       <div id="filters" class="filters"  align="right">
-        <a href="{% url 'list_pdf' %}" class="active">All</a>
-        <a href="{% url 'category_list_pdf' 'future' %}" >Future</a>
-        <a href="{% url 'category_list_pdf' 'youth' %}" >Youth</a>
-        <a href="{% url 'category_list_pdf' 'summer' %}"  >Summer</a>
+        <a href="{% url 'list_pdf' %}" >All</a>
+        <a href="{% url 'category_list_pdf' 'future' %}" {% if request.get_full_path == "/pdf/future" %} class='active'{% endif %} >Future</a>
+        <a href="{% url 'category_list_pdf' 'youth' %}" {% if request.get_full_path == "/pdf/youth" %} class='active'{% endif %} >Youth</a>
+        <a href="{% url 'category_list_pdf' 'summer' %}"  {% if request.get_full_path == "/pdf/summer" %} class='active'{% endif %} >Summer</a>
        
       </div>
     </div>
 </div>
 
     <div class="row">
-      {% for obj in pdf_lists %}
+      {% for obj in cat_pdf_lists %}
       <div class="col-md-4  d-lg-flex ftco-animate mb-1">
         <!-- <div class="img" style="background-image: url({{ obj.image.url }});"></div> -->
         <div class="text bg-light p-4">
@@ -61,18 +65,19 @@
           
           <p>{{obj.overview}}</p>
 
-
-          <div class="d-flex align-items-center mt-4">
+         
+       
+          <div class="d-flex align-items-center ">
              
             <p class="mb-0"><a href="{{obj.pdf.url}}" target="_blank" class="btn btn-primary">Download <span class="ion-ios-arrow-round-down"></span></a></p>
             <p class="ml-auto mb-0">
-             <div class="tag-widget post-tag-container mb-2 mt-2 text-right">
-            <div class="tagcloud">
-              
-              <a class="tag-cloud-link">{{obj.category}}</a>
-                       
-            </div>
-           </div>
+              <div class="tag-widget post-tag-container mb-2 mt-2 text-right">
+                <div class="tagcloud">
+                  
+                  <a class="tag-cloud-link">{{obj.category}}</a>
+                     
+                </div>
+               </div>
               <!-- <a href="#" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>
               <a href="#" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a> -->
               

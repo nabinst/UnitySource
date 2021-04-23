@@ -33,11 +33,11 @@ SECRET_KEY = env('SECRET_KEY')
 
 
 
-DEBUG = False
-ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
+# DEBUG = False
+# ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
-# DEBUG = True
-# ALLOWED_HOSTS = []
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 
