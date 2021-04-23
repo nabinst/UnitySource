@@ -440,117 +440,6 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-  .filters a {
-    color: #000;
-    display: inline-block;
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative;
-  }
-  
-  .filters a:hover, .filters a:focus, .filters a:active {
-    text-decoration: none;
-  }
-  
-  .filters a:hover:before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 0;
-    height: 1px;
-    background-color: #000;
-  }
-  
-  .filters a.active {
-    color: #000;
-  }
-  
-  .filters a.active:before {
-    content: "";
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 0;
-    height: 1px;
-    background-color: #000;
-  }
-  
-  .item {
-    border: none;
-    margin-bottom: 30px;
-  }
-  
-  .item .item-wrap {
-    display: block;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .item .item-wrap:after {
-    z-index: 2;
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    visibility: hidden;
-    opacity: 0;
-    transition: .3s all ease-in-out;
-  }
-  
-  .item .item-wrap img {
-    transition: .3s transform ease;
-    transform: scale(1);
-  }
-  
-  .item .item-wrap > .work-info {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    z-index: 3;
-    transform: translateY(-50%);
-    color: #fff;
-    opacity: 0;
-    visibility: hidden;
-    margin-top: 20px;
-    transition: .3s all ease;
-  }
-  
-  .item .item-wrap > .work-info h3 {
-    font-size: 20px;
-    margin-bottom: 0;
-  }
-  
-  .item .item-wrap > .work-info span {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: .2rem;
-  }
-  
-  .item .item-wrap:hover {
-    text-decoration: none;
-  }
-  
-  .item .item-wrap:hover img {
-    transform: scale(1.05);
-  }
-  
-  .item .item-wrap:hover:after {
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .item .item-wrap:hover .work-info {
-    margin-top: 0px;
-    opacity: 1;
-    visibility: visible;
-  }
-  
-
 .container {
   width: 100%;
   padding-right: 15px;
@@ -9543,6 +9432,7 @@ textarea.form-control {
       margin: 0 10px;
       opacity: .5; }
 
+
 .tagcloud a {
   text-transform: uppercase;
   display: inline-block;
@@ -9553,8 +9443,12 @@ textarea.form-control {
   color: #000000;
   border: 1px solid #ccc;
   font-size: 11px; }
-  .tagcloud a:hover {
-    border: 1px solid #000; }
+
+.tagcloud a:hover {
+  border: 1px solid #000; }
+.tagcloud a.active {
+  border: 1px solid rgb(18, 6, 240); }
+  
 
 .comment-form-wrap {
   clear: both; }
