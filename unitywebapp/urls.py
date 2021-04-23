@@ -12,7 +12,7 @@ from django.contrib.auth import views as auth_views
 from sendemail.views import  contactView, successView
 from django.contrib import admin
 from django.urls import path, include
-from pdfform.views import list_pdf, upload_pdf, delete_pdf
+from pdfform.views import list_pdf, upload_pdf, delete_pdf, category_list_pdf
 from newsletters.views import (newsletter_signup, newsletter_unsubscribe, 
 NewsCreateView, NewsListView, NewsDetailView, NewsDeleteView, NewsUpdateView, email_list_signup)
 from gallery.views import GalleryListView, GalleryCreateView, GalleryDeleteView
@@ -36,6 +36,8 @@ urlpatterns = [
     path('pdf/', list_pdf, name='list_pdf' ),
     path('pdf/upload/', upload_pdf, name='upload_pdf' ), 
     path('pdf/<int:pk>/', delete_pdf, name='delete_pdf' ),
+    path('pdf/<str:pdf_cat>', category_list_pdf, name='category_list_pdf' ),
+ 
     path('contact/',contactView, name='contact'),
     path('contact_success/', successView, name='contact_success'),
     path('calendar/',CalendarView, name='calendar'),

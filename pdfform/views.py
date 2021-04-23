@@ -12,6 +12,14 @@ def list_pdf(request):
     return render(request, 'pdf_files/pdf_list.html',context)
 
 
+def category_list_pdf(request, pdf_cat='youth'):
+    cat_pdf_lists = FormPdf.objects.filter(category= pdf_cat)
+    context={
+        'cat_pdf_lists': cat_pdf_lists
+    }
+    return render(request, 'pdf_files/cat_pdf_list.html',context)
+
+
 def upload_pdf(request):
     if request.method =="POST":
         form = PDFform(request.POST, request.FILES)

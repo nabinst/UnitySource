@@ -4,4 +4,4 @@ from .models import FormPdf
 class PDFform(forms.ModelForm):
     class Meta:
         model = FormPdf
-        fields = ('title', 'overview','pdf')
+        fields = ('title', 'overview','pdf','category')

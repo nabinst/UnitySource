@@ -31,3 +31,14 @@ def contactView(request):
 def successView(request):
     return render(request, 'send_email/contact_success.html',{})
     #HttpResponse('Success! Thank you for your message.')
+
+
+# email = EmailMessage(
+#     subject=subject,
+#     body=message,
+#     from_email=email_from,
+#     to=[email_to],
+#     reply_to=[email_from],
+# )
+
+# email.send()
