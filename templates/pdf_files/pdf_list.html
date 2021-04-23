@@ -49,7 +49,7 @@
           <a href="{% url 'category_list_pdf' 'future' %}"  {% if request.get_full_path == "/pdf/future" %} class='active' {% endif %} >Future</a>
           <a href="{% url 'category_list_pdf' 'youth' %}" {% if request.get_full_path == "/pdf/youth" %} class='active'{% endif %} >Youth</a>
           <a href="{% url 'category_list_pdf' 'summer' %}"  {% if request.get_full_path == "/pdf/summer" %} class='active'{% endif %} >Summer</a>
-        
+          <a href="{% url 'category_list_pdf' 'others' %}"  {% if request.get_full_path == "/pdf/others" %} class='active'{% endif %} >Others</a>
         </div>
       </div>
     </div>
