@@ -30,13 +30,14 @@ from hitcount.views import HitCountDetailView
 class PostListView(ListView):
     model = Post
     template_name = 'blogs/blog.html'
-    #context_object_name = 'posts'
+    context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 6
-
+    queryset = Post.objects.filter(featured=True).order_by('-date_posted')
+    
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        context_data['posts'] = Post.objects.filter(featured=True).order_by('-date_posted')
+        #context_data['posts'] = Post.objects.filter(featured=True).order_by('-date_posted')
         context_data['blog_latest'] = Post.objects.filter(featured=True).order_by('-date_posted')[0:3]
         context_data['category_count'] = Post.objects.filter(featured=True).values('categories__title').annotate(Count('categories__title'))
         return context_data
