@@ -36,8 +36,10 @@ SECRET_KEY = env('SECRET_KEY')
 # DEBUG = False
 # ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com']
 
-DEBUG = True
-ALLOWED_HOSTS = []
+#DEBUG = True
+# ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ['unitycenter.pythonanywhere.com','unityctr.org','www.unityctr.org', '127.0.0.1']
 
 
 

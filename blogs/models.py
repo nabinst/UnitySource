@@ -20,6 +20,8 @@ class Post(models.Model):
     overview = models.TextField()
     content = HTMLField()
     date_posted =models.DateTimeField(auto_now_add=True)
+    event_date = models.DateField(null=True, blank=True, help_text='YYYY-MM-DD')
+    sort = models.IntegerField(default=999)
     author = models.ForeignKey(User, on_delete=models.CASCADE )
     #view_count = models.IntegerField(default=0)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', 
@@ -30,6 +32,8 @@ class Post(models.Model):
     previous_post = models.ForeignKey('self', related_name ='previous',on_delete=models.SET_NULL, blank=True, null=True)
     next_post = models.ForeignKey('self', related_name='next', on_delete=models.SET_NULL, blank=True, null=True)
     featured = models.BooleanField(default=False)
+  
+
 
     def __str__(self):
         return self.title
