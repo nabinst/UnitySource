@@ -57,9 +57,9 @@
             <div class="blog-entry">
               <a href="{{ post.get_absolute_url }}" class="block-20 d-flex align-items-end" style="background-image: url({{ post.thumbnail.url }});">
 								<div class="meta-date text-center p-2">
-                  <span class="day">{{post.date_posted|date:"d"}} </span>
-                  <span class="mos">{{post.date_posted|date:"M" }}</span>
-                  <span class="yr">{{post.date_posted|date:"Y"}} </span>
+                  <span class="day">{{post.event_date|date:"d"}} </span>
+                  <span class="mos">{{post.event_date|date:"M" }}</span>
+                  <span class="yr">{{post.event_date|date:"Y"}} </span>
                 </div>
               </a>
               <div class="text bg-white p-4">
@@ -71,7 +71,7 @@
 	                <p class="ml-auto mb-0">
                    
 	                	<a href="{% url 'user-posts' post.author.username %}" class="mr-2">{{post.author.first_name }} {{post.author.last_name }}</a>
-	                	<!-- <a href="{{ post.get_absolute_url }}" class="meta-chat"><span class="icon-chat"></span>{{ post.comments.count }}</a> -->
+	                
                     
                   </p>
                 </div>

@@ -32,7 +32,7 @@
                   <div class="text">
                     <h3 class="heading"><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h3>
                     <div class="meta">
-                      <div><a href="#"><span class="icon-calendar"></span> {{ obj.date_posted|timesince }} ago</a></div>
+                      <div><a href="#"><span class="icon-calendar"></span> {{ obj.event_date }}</a></div>
                       <div><a href="{% url 'user-posts' obj.author.username %}">
                         <span class="icon-person">
                         </span> {{ obj.author.first_name }} {{obj.author.last_name }}</a></div>

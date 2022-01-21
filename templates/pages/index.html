@@ -7,7 +7,7 @@
 
     
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url({% static 'images/main55.jpg' %});">
+      <div class="slider-item" style="background-image:url({% static 'images/main77.jpg' %});">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -31,7 +31,7 @@
         </div>
 	  </div>
 	  
-	  <div class="slider-item" style="background-image:url({% static 'images/main11.jpg' %});">
+	  <div class="slider-item" style="background-image:url({% static 'images/main88.jpg' %});">
 		<div class="overlay"></div>
 	  <div class="container">
 		<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -462,9 +462,9 @@
             <div class="blog-entry">
               <a href="{{blog.get_absolute_url}}" class="block-20 d-flex align-items-end" style="background-image: url({{ blog.thumbnail.url }});">
 								<div class="meta-date text-center p-2">
-                  <span class="day">{{blog.date_posted|date:"d"}} </span>
-                  <span class="mos">{{blog.date_posted|date:"M" }}</span>
-                  <span class="yr">{{blog.date_posted|date:"Y"}}</span>
+                  <span class="day">{{blog.event_date|date:"d"}} </span>
+                  <span class="mos">{{blog.event_date|date:"M" }}</span>
+                  <span class="yr">{{blog.event_date|date:"Y"}}</span>
                 </div>
               </a>
               <div class="text bg-white p-4">
