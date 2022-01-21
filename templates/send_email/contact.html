@@ -4,7 +4,7 @@
 {% block content %}
 
 
-    
+
     <section class="hero-wrap hero-wrap-2" style="background-image: url({% static 'images/bg_2.jpg' %});">
       <div class="overlay"></div>
       <div class="container">
@@ -36,19 +36,19 @@
           <div class="col-md-3 d-flex">
           	<div class="bg-light align-self-stretch box p-4 text-center">
           		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+	            <p><a href="mailto:clevelandunitycenter@gmail.com">clevelandunitycenter@gmail.com</a></p>
 	          </div>
           </div>
           <div class="col-md-3 d-flex">
           	<div class="bg-light align-self-stretch box p-4 text-center">
           		<h3 class="mb-4">Website</h3>
-	            <p><a href="#">yoursite.com</a></p>
+	            <p><a href="#">www.unityctr.org</a></p>
 	          </div>
           </div>
         </div>
       </div>
     </section>
-		
+
 		<section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
 			<div class="container">
 				<div class="row d-flex align-items-stretch no-gutters">
@@ -56,23 +56,23 @@
 
 
             <!-- <form method="post"> -->
-              
+
             <!-- {{ form.as_p }}
             <button type="submit">Send</button>
             </form> -->
-            
+
 						<form method="POST" action=".">
               {% csrf_token %}
 
               {{ form|crispy }}
               <!-- <div class="form-group">
                 {{ form.from_email|as_crispy_field}}
-                 <input  id="id_first_name" name="first_name" type="text"  class="form-control" placeholder="Your fName"> 
-              </div> 
+                 <input  id="id_first_name" name="first_name" type="text"  class="form-control" placeholder="Your fName">
+              </div>
               <div class="form-group">
                 {{ form.subject|as_crispy_field}}
                 <input  id="id_last_name" name="last_name" type="text"  class="form-control" placeholder="Your lName">
-              </div> 
+              </div>
               <div class="form-group">
                 {{ form.message|as_crispy_field}}
                 <input type="text" id="id_email" name="email" class="form-control" placeholder="Your Email">
@@ -88,17 +88,17 @@
               </div>
             </form>
 					</div>
-          
+
 					<div class="col-md-6 d-flex align-items-stretch bg-light">
-					
+
               <!-- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=17&center=35.1573%2C-84.8591&key=AIzaSyBgP7k6WCja2Vj6Q_xnt4q47XKiA_te-7E" allowfullscreen></iframe> -->
               <!-- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?zoom=17&center=35.1573%2C-84.8591&key=AIzaSyBgP7k6WCja2Vj6Q_xnt4q47XKiA_te-7E" allowfullscreen></iframe> -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.97118540058!2d-84.86128178457797!3d35.15733936613177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885e2b871c7755bd%3A0x1c0949cdb0c97912!2s685%20Benton%20Pike%20NE%2C%20Cleveland%2C%20TN%2037311!5e0!3m2!1sen!2sus!4v1613066809790!5m2!1sen!2sus" width="600" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>      
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.97118540058!2d-84.86128178457797!3d35.15733936613177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885e2b871c7755bd%3A0x1c0949cdb0c97912!2s685%20Benton%20Pike%20NE%2C%20Cleveland%2C%20TN%2037311!5e0!3m2!1sen!2sus!4v1613066809790!5m2!1sen!2sus" width="600" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.2691444066313!2d-84.79058748457811!3d35.14990786653414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x885e2d9d0d795203%3A0x51ce737d94519eb4!2s863%20Old%20Parksville%20Rd%20NE%2C%20Cleveland%2C%20TN%2037323!5e0!3m2!1sen!2sus!4v1613065024593!5m2!1sen!2sus" width="600" height="550" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
 					</div>
 				</div>
 			</div>
 		</section>
 
-		
+
 {% endblock content %}
